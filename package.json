@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "./autocommit.js"
+    "start": "./autocommit.js",
+    "test": "./autocommit.js"
   },
   "keywords": [],
   "author": "",
