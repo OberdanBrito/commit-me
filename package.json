@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./autocommit.js",
-    "test": "./autocommit.js"
+    "test": "node autocommit.js"
   },
   "keywords": [],
   "author": "",
