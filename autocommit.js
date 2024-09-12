@@ -54,9 +54,6 @@ function isFileLocked(filePath) {
  * @returns {Promise<void>} Uma promessa que resolve quando o processo for concluído.
  */
 async function processCommits() {
-  const timestamp = new Date().toISOString();
-  console.log(`${timestamp} processando commits`);
-
   try {
     await executeShellCommand('git add .');
     const gitstatus = await executeShellCommand('git status --porcelain');
@@ -97,11 +94,14 @@ async function processFiles(files) {
  * @param {string} file - O caminho do arquivo a ser processado.
  */
 async function processSingleFile(file) {
+  const timestamp = new Date().toISOString();
+  console.log(`${timestamp} processando commits`);
+  
   const data = await fs.promises.readFile(file, 'utf8');
-
-  // Procura por uma linha que comece com "//{commit}" até o final da linha
-  const matchLine = data.match(/\/\/\{\{commit}}.*$/m)?.[0] || '';
-  const message = matchLine.replace('//{{commit}}', '').trim();
+  
+  // Procura por uma linha que comece com "// COMMIT:" até o final da linha
+  const matchLine = data.match(/\/\/\s*COMMIT:\s*.*/m)?.[0] || '';
+  const message = matchLine.replace('// COMMIT:', '').trim();
   const commitMessage = `${timestamp} ${message}`;
   await executeShellCommand(`git commit -m "${commitMessage}"`);
   console.log(commitMessage);
