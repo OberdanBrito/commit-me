@@ -76,7 +76,7 @@ async function processCommits() {
  */
 async function processFiles(files) {
   for (const statusItem of files) {
-    if (statusItem === '' || statusItem.includes('update.sh') || statusItem.includes('update.js')) {
+    if (statusItem === '' || statusItem.includes('autocommit.js')) {
       continue;
     }
 
@@ -96,9 +96,9 @@ async function processFiles(files) {
 async function processSingleFile(file) {
   const timestamp = new Date().toISOString();
   console.log(`${timestamp} processando commits`);
-  
+
   const data = await fs.promises.readFile(file, 'utf8');
-  
+
   // Procura por uma linha que comece com "// COMMIT:" até o final da linha
   const matchLine = data.match(/\/\/\s*COMMIT:\s*.*/m)?.[0] || '';
   const message = matchLine.replace('// COMMIT:', '').trim();
@@ -112,14 +112,29 @@ async function processSingleFile(file) {
  * Usa a variável de argumento de linha de comando para definir o intervalo entre os commits.
  * @returns {void}
  */
-function startRegular() {
-  const intervalTime = parseInt(process.argv[2]) || 600000;
+async function startRegular() {
+  let intervalTime = 600000;
+  let testMode = false;
+
+  process.argv.slice(2).forEach(arg => {
+    if (arg.startsWith('-i=')) {
+      intervalTime = parseInt(arg.split('=')[1]);
+    } else if (arg === '-t') {
+      testMode = true;
+    }
+  });
+
+  if (testMode) {
+    await processCommits();
+    process.exit(0);
+  }
+
   setInterval(async () => {
     await processCommits();
   }, intervalTime);
 }
 
 processCommits().then(() => {
-  console.log('Iniciando o processo de commit em intervalos');
+  console.log('Starting regular commit process');
   startRegular();
 });
