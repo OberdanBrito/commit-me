@@ -3,7 +3,8 @@
   "version": "1.0.3",
   "main": "commitme.js",
   "scripts": {
-    "start": "objcmt.js"
+    "start": "objcmt.js",
+    "test": "objcmt.js"
   },
   "keywords": [
     "git",
