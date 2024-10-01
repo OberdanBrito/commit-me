@@ -1,4 +1,4 @@
-//COMMIT: adiciona o intervalo de tempo de cinco minutos
+//COMMIT: inclusão do script bash
 const fs = require('fs');
 const childProcess = require('child_process');
 
