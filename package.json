@@ -4,7 +4,7 @@
   "main": "commitme.js",
   "scripts": {
     "start": "objcmt.js",
-    "test": "objcmt.js"
+    "test": "./objcmt.js"
   },
   "keywords": [
     "git",
