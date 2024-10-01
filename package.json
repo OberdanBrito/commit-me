@@ -1,6 +1,6 @@
 {
-  "name": "commitme",
-  "version": "1.0.0",
+  "name": "objcmt",
+  "version": "1.0.1",
   "main": "commitme.js",
   "scripts": {
     "start": "objcmt"
