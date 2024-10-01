@@ -1,5 +1,5 @@
 #!/usr/local/bin/node
-//COMMIT: nova versão
+//COMMIT: adiciona o intervalo de tempo de cinco minutos
 const fs = require('fs');
 const childProcess = require('child_process');
 
@@ -85,3 +85,4 @@ async function findCommitMarkers(files) {
 }
 
 init().then(() => {});
+setInterval(init, 300000); // 300000 milliseconds = 5 minutes
