@@ -84,4 +84,4 @@ async function findCommitMarkers(files) {
   return commitContents;
 }
 
-init().then(r => {});
+init().then(() => {});
