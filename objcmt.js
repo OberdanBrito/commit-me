@@ -1,4 +1,3 @@
-#!/usr/local/bin/node
 //COMMIT: adiciona o intervalo de tempo de cinco minutos
 const fs = require('fs');
 const childProcess = require('child_process');
