@@ -2,9 +2,8 @@
   "name": "commitme",
   "version": "1.0.0",
   "main": "commitme.js",
-  "private": false,
   "scripts": {
-    "start": "./commitme"
+    "start": "objcmt"
   },
   "keywords": [
     "git",
