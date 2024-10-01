@@ -1,6 +1,6 @@
 {
   "name": "objcmt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "commitme.js",
   "scripts": {
     "start": "objcmt.js"
@@ -10,6 +10,9 @@
     "commit",
     "regular"
   ],
+  "bin": {
+    "objcmt": "./objcmt.js"
+  },
   "homepage": "https://github.com/OberdanBrito/commit-me",
   "author": "Oberdan Brito (oberdan@craos.net)",
   "license": "ISC",
