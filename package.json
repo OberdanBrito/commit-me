@@ -1,13 +1,26 @@
 {
-  "name": "autocommit",
+  "name": "commitme",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "commitme.js",
+  "private": false,
   "scripts": {
-    "start": "./autocommit.js",
-    "test": "./autocommit.js -t"
+    "start": "./commitme"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "git",
+    "commit",
+    "regular"
+  ],
+  "homepage": "https://github.com/OberdanBrito/commit-me",
+  "author": "Oberdan Brito (oberdan@craos.net)",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OberdanBrito/commit-me.git"
+  },
+  "bugs": {
+    "type": "github",
+    "url": "https://github.com/OberdanBrito/commit-me/issues"
+  },
+  "description": "Automatiza commits regulares com base em regras definidas, facilitando o gerenciamento de versões e fluxo de trabalho Git."
 }
